@@ -177,7 +177,8 @@ mod linux {
     /// The two arms have different authorities behind them. None must carry
     /// zero because that is the only value the kernel accepts for it. Idle
     /// carrying 7 is the reference implementation's convention: the kernel
-    /// ignores idle's level entirely, so nothing forces that choice.
+    /// takes any level with idle and hands it back unchanged, so nothing
+    /// forces that choice.
     fn fixed_data(class: i32) -> Option<i32> {
         match class {
             ioprio::IOPRIO_CLASS_NONE => Some(0),

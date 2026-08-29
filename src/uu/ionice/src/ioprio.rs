@@ -61,7 +61,8 @@ impl fmt::Display for IoPrio {
         let class = self.class();
 
         if class == IOPRIO_CLASS_IDLE {
-            // The idle class carries no priority level.
+            // An idle priority prints as the bare class name; the level it
+            // carries is not shown.
             f.write_str(class_name(class))
         } else {
             write!(f, "{}: prio {}", class_name(class), self.data())
